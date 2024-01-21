@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
 import { v4 as uuidv4 } from 'uuid';
+import AddTask from './AddTask';
 
 const ToDoList = ({ initialValues }) => {
 	const [toDos, setToDos] = useState(initialValues.map((value) => ({ id: uuidv4(), title: value })));
@@ -22,6 +23,7 @@ const ToDoList = ({ initialValues }) => {
 					<Button title="Remove" onPress={() => removeToDo(toDo.id)} />
 				</View>
 		  	))}
+			<AddTask onAddTask={ addToDo }></AddTask>
 		</View>
 	);
 };
